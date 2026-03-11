@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Meu Perfil</title>
+
+<style>
+
+body{
+margin:0;
+font-family: Arial;
+background:#f4f4f4;
+}
+
+.topo{
+background:#c9d8e6;
+text-align:center;
+padding:30px;
+}
+
+.foto{
+width:100px;
+border-radius:50%;
+border:4px solid white;
+}
+
+.nome{
+font-size:20px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.desc{
+color:gray;
+font-size:14px;
+}
+
+.estatisticas{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:15px;
+}
+
+.box{
+padding:10px;
+border-radius:8px;
+color:white;
+width:80px;
+text-align:center;
+}
+
+.livros{
+background:#e79a78;
+}
+
+.favoritos{
+background:#5ea5a6;
+}
+
+.resenhas{
+background:#8fb0a3;
+}
+
+.favoritos-titulo{
+margin:20px;
+font-weight:bold;
+}
+
+.livros-favoritos{
+display:flex;
+justify-content:center;
+gap:10px;
+}
+
+.livros-favoritos img{
+width:80px;
+border-radius:6px;
+}
+
+
+.menu{
+position:fixed;
+bottom:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:10px;
+border-top:1px solid #ddd;
+}
+
+.menu div{
+text-align:center;
+font-size:14px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="topo">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="foto">
+
+<div class="nome">João Silva</div>
+<div class="desc">Amante de Livros!</div>
+
+<div class="estatisticas">
+
+<div class="box livros">
+<b>Meus Livros</b><br>
+21
+</div>
+
+<div class="box favoritos">
+<b>Favoritos</b><br>
+15
+</div>
+
+<div class="box resenhas">
+<b>Resenhas</b><br>
+4
+</div>
+</div>
+</div>
+
+<div class="favoritos-titulo">
+Favoritos
+</div>
+<div class="livros-favoritos">
+
+<img src="https://m.media-amazon.com/images/I/81af+MCATTL.jpg">
+<img src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg">
+<img src="https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg">
+
+</div>
+<div class="menu">
+
+<div>🏠<br>Home</div>
+<div>📚<br>Meus Livros</div>
+<div>⭐<br>Favoritos</div>
+<div>👤<br><b>Perfil</b></div>
+
+</div>
+</body>
+</html>
