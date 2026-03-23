@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readify: Tela Inicial</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="h-full">
+
+<div id="capsula do app" class="larg total, alt total, bg w, layout em coluna e scroll auto" style="max-width:480px;margin:0 auto;">
+
+<header class="flex items-center justify-between px-5 pt-6 pb-3"> <!-- seta de voltar (vai sair do app?) -->
+
+<button class="p-1 rounded-lg hover:bg-gray-100">
+<i data-lucide="chevron-left" style="width:26px;height:26px;color:#1e2a4a;"></i>
+</button>
+
+<h1 id="boas-vindas" class="text-xl font-bold">Bem-vindo, Filipe!</h1>
+
+<div style="width:34px;"></div>
+
+</header>
+
+
+<main class="flex-1 overflow-auto px-4 pb-24">
+
+<section class="rounded-2xl p-6 mt-3 bg-[#faf0e6]">
+
+<div class="flex gap-4">
+
+<div class="capa-do-livro flex-shrink-0" style="width:105px;">
+<img src="https://m.media-amazon.com/images/I/61mzLkXJdXL._SY466_.jpg">
+</div>
+
+<div class="flex flex-col justify-center gap-1 flex-2 min-w-0">
+
+<span class="text-sm font-bold uppercase mb-2 text-gray-600">
+Leitura Atual
+</span>
+
+<div class="barra-de-progresso-vazia rounded-full h-5 w-full overflow-hidden flex mb-3">
+
+<div class="barra-de-progresso-cheia rounded-full h-full flex items-center justify-center" style="width:75%;">
+<span class="text-white text-[10px] font-semibold">75%</span>
+</div>
+
+</div>
+
+<p id="autor-do-livro" class="text-xs text-gray-500">
+Igor Pires
+</p>
+
+<p class="text-sm font-bold max-w-[200px]">
+Textos cruéis demais para serem lidos rapidamente
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<button id="ver-minha-biblioteca" class="w-full mt-5 py-4 rounded-xl text-white font-bold text-base tracking-wide bg-[#3b9e8c]">
+Ver minha biblioteca
+</button>
+
+<div class="w-full h-px bg-gray-200 my-4"></div>
+
+<section class="rounded-2xl p-5 mt-5 mb-4 bg-[#eaf1f8]">
+
+<h2 class="text-lg font-bold mb-4">
+Obras em Destaque
+</h2>
+
+<div class="grid grid-cols-3 gap-4 pb-2">
+
+<div class="featured-card">
+
+<img class="capa-do-livro" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKo8sm32e1AdCDm6wFXoNE8nnf5S3k2ZRCzNXvLDOW2sYLDVeJ">
+
+<p class="text-xs font-bold mt-2">
+Mansão Gallant
+</p>
+
+<p class="text-[11px] text-gray-500">
+V.E Schwab
+</p>
+
+</div>
+
+
+<div class="featured-card">
+
+<img class="capa-do-livro" src="https://m.media-amazon.com/images/I/41ziC4vXKBL._SY445_SX342_ML2_.jpg">
+
+<p class="text-xs font-bold mt-2">
+A Empregada
+</p>
+
+<p class="text-[11px] text-gray-500">
+Freida McFadden
+</p>
+
+</div>
+
+
+<div class="featured-card">
+
+<img class="capa-do-livro" src="https://m.media-amazon.com/images/I/91r5G8RxqfL.jpg">
+
+<p class="text-xs font-bold mt-2">
+É Assim que Acaba
+</p>
+
+<p class="text-[11px] text-gray-500">
+Colleen Hoover
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<nav class="w-full border-t border-gray-200 bg-white flex items-center justify-around py-2 px-2">
+
+
+<button class="nav-item flex flex-col items-center" id="btn-home">
+  <img src="icons/inicio.svg" class="w-6 md:w-8">
+  <span class="text-sm">Home</span>
+</button>
+
+<button class="nav-item flex flex-col items-center" id="btn-meuslivros">
+  <img src="icons/meuslivros.svg" class="w-6 md:w-8">
+  <span class="text-sm">Meus Livros</span>
+</button>
+
+<button class="nav-item flex flex-col items-center" id="btn-favoritos">
+  <img src="icons/favoritos.svg" class="w-6 md:w-8">
+  <span class="text-sm">Favoritos</span>
+</button>
+
+<button class="nav-item flex flex-col items-center" id="btn-perfil">
+  <img src="icons/perfil.svg" class="w-6 md:w-8">
+  <span class="text-sm">Perfil</span>
+</button>
+
+</nav>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
