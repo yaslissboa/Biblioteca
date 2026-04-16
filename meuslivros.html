@@ -2,369 +2,306 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meus Livros</title>
-<style> 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background: #f3f3f3;
-        padding-bottom: 70px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    /* topo */
-    .topo {
-        display: flex;
-        align-items: center;
-        padding: 15px 20px;
-        background: white;
-        border-bottom: 2px solid #ffe4e4;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .topo h1 {
-        flex: 1;
-        text-align: center;
-        font-size: 20px;
-        font-family: Arial;
-        color: #fe7c2c;
-    }
+body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    background: #ffffff;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
 
-    .voltar {
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        color: #fe7c2c;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        transition: background 0.2s;
-    }
+.container {
+    width: 100%;
+    max-width: 480px;
+}
 
-    .voltar:hover {
-        background: #f0f0f0;
-    }
+/* topo */
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 16px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-    .intro {
-        background: linear-gradient(135deg, #ffe0ca 0%, #ffd4b8 100%);
-        padding: 24px 20px;
-        text-align: center;
-    }
+.topo h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e2a4a;
+}
 
-    .intro h2 {
-        font-size: 18px;
-        margin-bottom: 18px;
-        color: #5a3e2e;
-    }
+.voltar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 20px;
+}
 
-    /* aba de pesquisa */
-    .buscar {
-        max-width: 500px;
-        margin: 0 auto;
-    }
+.voltar:hover {
+    background: #f3f4f6;
+}
 
-    .buscar input {
-        width: 100%;
-        padding: 12px 16px;
-        border-radius: 25px;
-        border: none;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        font-size: 14px;
-        outline: none;
-        transition: box-shadow 0.2s;
-    }
+/* intro */
+.intro {
+    background: #faf0e6;
+    margin: 10px 16px;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+}
 
-    .buscar input:focus {
-        box-shadow: 0 4px 12px rgba(254, 124, 44, 0.2);
-        border: 1px solid #fe7c2c;
-    }
+.intro h2 {
+    font-size: 15px;
+    margin-bottom: 14px;
+    color: #555;
+}
 
-    
-    .contador {
-        padding: 12px 20px 0 20px;
-        font-size: 13px;
-        color: #888;
-        text-align: left;
-    }
+/* busca */
+.buscar input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: none;
+    background: white;
+    font-size: 14px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
 
-    .livros {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        padding: 20px;
-        align-items: center;
-    }
+.buscar input:focus {
+    box-shadow: 0 0 0 2px #3b9e8c33;
+}
 
-    .livro {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-        transition: transform 0.2s, box-shadow 0.2s;
-        cursor: pointer;
-    }
+/* contador */
+.contador {
+    padding: 10px 16px;
+    font-size: 12px;
+    color: #888;
+}
 
-    .livro:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-    }
+/* grid */
+.livros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 0 16px 20px;
+}
 
-    .livro img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        display: block;
-    }
+/* card */
+.livro {
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-    .livro-info {
-        padding: 10px 8px 12px;
-        text-align: center;
-    }
+.livro:hover {
+    transform: scale(1.04);
+}
 
-    .livro-titulo {
-        font-size: 13px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 4px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+/* imagem */
+.livro img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+}
 
-    .livro-autor {
-        font-size: 11px;
-        color: #fe7c2c;
-    }
+/* info */
+.livro-info {
+    padding-top: 6px;
+}
 
-    .sem-resultados {
-        text-align: center;
-        padding: 40px 20px;
-        color: #999;
-        font-size: 14px;
-        grid-column: 1 / -1;
-    }
+.livro-titulo {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e2a4a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-    .menu {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(8px);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 10px 0 14px;
-        border-top: 1px solid #e0e0e0;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-        z-index: 100;
-    }
+.livro-autor {
+    font-size: 11px;
+    color: #777;
+}
 
-    .menu a {
-        text-decoration: none;
-        color: #5a6e7a;
-        transition: color 0.2s;
-        flex: 1;
-        text-align: center;
-    }
+/* vazio */
+.sem-resultados {
+    text-align: center;
+    padding: 40px 20px;
+    color: #aaa;
+    font-size: 13px;
+    grid-column: 1 / -1;
+}
 
-    .menu a:hover {
-        color: #fe7c2c;
-    }
+/* menu */
+.menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+}
 
-    .menu div {
-        text-align: center;
-        font-size: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-    }
+.menu a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+}
 
-    .menu img {
-        width: 24px;
-        height: 24px;
-        opacity: 0.7;
-        transition: opacity 0.2s;
-    }
+.menu div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .menu a:hover img {
-        opacity: 1;
-    }
+.menu img {
+    width: 22px;
+    margin-bottom: 2px;
+    opacity: 0.7;
+}
 
-    .menu .ativo {
-        color: #fe7c2c;
-    }
+.menu .ativo {
+    color: #3b9e8c;
+}
 
-    .menu .ativo img {
-        opacity: 1;
-        filter: brightness(0) saturate(100%) invert(62%) sepia(34%) saturate(731%) hue-rotate(328deg) brightness(93%) contrast(88%);
-    }
-
-    /* responsividade */
-    @media (max-width: 480px) {
-        .livros {
-            gap: 12px;
-            padding: 15px;
-        }
-        
-        .livro img {
-            height: 150px;
-        }
-        
-        .intro h2 {
-            font-size: 16px;
-        }
-        
-        .topo h1 {
-            font-size: 18px;
-        }
-    }
+.menu .ativo img {
+    opacity: 1;
+}
 </style>
 </head>
 
 <body>
- 
+
+<div class="container">
+
 <header class="topo">
     <button class="voltar" onclick="history.back()">←</button>
-    <h1> Meus Livros</h1>
+    <h1>Meus Livros</h1>
+    <div style="width:24px;"></div>
 </header>
 
 <section class="intro">
-    <h2> Organize e avalie seus livros favoritos aqui!</h2>
+    <h2>Organize e acompanhe seus livros</h2>
     <div class="buscar">
-        <input type="text" id="search" placeholder="🔍 Digite o nome da obra ou seu autor...">
+        <input type="text" id="search" placeholder="Buscar por título ou autor...">
     </div>
 </section>
 
-<div class="contador" id="contador">Mostrando 6 livros</div>
+<div class="contador" id="contador"></div>
 
-<section class="livros" id="listaLivros">
-    <!-- javaScript com dados completos por enquanto depois conecta com os favoritos -->
-</section>
+<section class="livros" id="listaLivros"></section>
 
 <div class="menu">
     <a href="home.html">
         <div>
-            <img src="icons/inicio.svg" alt="Home">
+            <img src="icons/inicio.svg">
             <span>Home</span>
         </div>
     </a>
     
     <a href="meuslivros.html" class="ativo">
         <div>
-            <img src="icons/meuslivros.svg" alt="Meus Livros">
+            <img src="icons/meuslivros.svg">
             <span>Meus Livros</span>
         </div>
     </a>
     
-    <a href="index.html">
+    <a href="favoritos.html">
         <div>
-            <img src="icons/favoritos.svg" alt="Favoritos">
+            <img src="icons/favoritos.svg">
             <span>Favoritos</span>
         </div>
     </a>
     
     <a href="perfil.html">
         <div>
-            <img src="icons/perfil.svg" alt="Perfil">
+            <img src="icons/perfil.svg">
             <span>Perfil</span>
         </div>
     </a>
 </div>
 
+</div>
+
 <script>
-   
-    const livrosData = [
-        {
-            titulo: "Labirinto do Fauno",
-            autor: "Cornelia Funke",
-            imagem: "https://m.media-amazon.com/images/I/71+yGuF-ioL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-            titulo: "Para Algernon",
-            autor: "Daniel Keyes",
-            imagem: "https://m.media-amazon.com/images/I/91i29TgAsvL._UF1000,1000_QL80_.jpg"
-        },
-        {
-            titulo: "Vampiro",
-            autor: "Ann Rice",
-            imagem: "https://m.media-amazon.com/images/I/71uPPT8QB2L._SY342_.jpg"
-        },
-        {
-            titulo: "Caça ao Lobisomem",
-            autor: "Toni Brandão",
-            imagem: "https://globaleditora.com.br/capas/400/3450.jpg"
-        },
-        {
-            titulo: "Frankenstein",
-            autor: "Mary Shelley",
-            imagem: "https://m.media-amazon.com/images/I/61H-JBmwTEL._SY445_SX342_ML2_.jpg"
-        },
-        {
-            titulo: "Extraordinário",
-            autor: "R. J. Palacio",
-            imagem: "https://m.media-amazon.com/images/I/6132ndvQdiL._AC_UF1000,1000_QL80_.jpg"
-        }
-    ];
+const livrosData = [
+    { titulo: "Labirinto do Fauno", autor: "Cornelia Funke", imagem: "https://m.media-amazon.com/images/I/71+yGuF-ioL._AC_UF1000,1000_QL80_.jpg" },
+    { titulo: "Para Algernon", autor: "Daniel Keyes", imagem: "https://m.media-amazon.com/images/I/91i29TgAsvL._UF1000,1000_QL80_.jpg" },
+    { titulo: "Vampiro", autor: "Ann Rice", imagem: "https://m.media-amazon.com/images/I/71uPPT8QB2L._SY342_.jpg" },
+    { titulo: "Caça ao Lobisomem", autor: "Toni Brandão", imagem: "https://globaleditora.com.br/capas/400/3450.jpg" },
+    { titulo: "Frankenstein", autor: "Mary Shelley", imagem: "https://m.media-amazon.com/images/I/61H-JBmwTEL._SY445_SX342_ML2_.jpg" },
+    { titulo: "Extraordinário", autor: "R. J. Palacio", imagem: "https://m.media-amazon.com/images/I/6132ndvQdiL._AC_UF1000,1000_QL80_.jpg" }
+];
 
-    const livrosContainer = document.getElementById('listaLivros');
-    const searchInput = document.getElementById('search');
-    const contadorSpan = document.getElementById('contador');
+const livrosContainer = document.getElementById('listaLivros');
+const searchInput = document.getElementById('search');
+const contador = document.getElementById('contador');
 
-    function renderizarLivros(filtro = '') {
-        const termoBusca = filtro.toLowerCase().trim();
-        
-        const livrosFiltrados = livrosData.filter(livro => 
-            livro.titulo.toLowerCase().includes(termoBusca) || 
-            livro.autor.toLowerCase().includes(termoBusca)
-        );
-        
-        const totalLivros = livrosFiltrados.length;
-        contadorSpan.textContent = `${totalLivros} ${totalLivros === 1 ? 'livro encontrado' : 'livros encontrados'}`;
-        livrosContainer.innerHTML = '';
-        
-        if (livrosFiltrados.length === 0) {
-            livrosContainer.innerHTML = '<div class="sem-resultados">📭 Nenhum livro encontrado. Tente outro termo!</div>';
-            return;
-        }
-      
-        livrosFiltrados.forEach(livro => {
-            const livroDiv = document.createElement('div');
-            livroDiv.className = 'livro';
-            livroDiv.innerHTML = `
-                <img src="${livro.imagem}" alt="Capa do livro ${livro.titulo}" loading="lazy">
-                <div class="livro-info">
-                    <div class="livro-titulo">${livro.titulo}</div>
-                    <div class="livro-autor">${livro.autor}</div>
-                </div>
-            `;
-            livroDiv.addEventListener('click', () => {
-                alert(`📖 ${livro.titulo}\n Autor: ${livro.autor}\n\nEm breve mais detalhes!`);
-            });
-            
-            livrosContainer.appendChild(livroDiv);
-        });
+function renderizarLivros(filtro = '') {
+    const termo = filtro.toLowerCase().trim();
+
+    const filtrados = livrosData.filter(livro =>
+        livro.titulo.toLowerCase().includes(termo) ||
+        livro.autor.toLowerCase().includes(termo)
+    );
+
+    contador.textContent = `${filtrados.length} ${filtrados.length === 1 ? 'livro encontrado' : 'livros encontrados'}`;
+
+    livrosContainer.innerHTML = '';
+
+    if (filtrados.length === 0) {
+        livrosContainer.innerHTML = '<div class="sem-resultados">Nenhum livro encontrado</div>';
+        return;
     }
 
-    // bisca em tempo real
-    searchInput.addEventListener('input', (e) => {
-        renderizarLivros(e.target.value);
-    });
+    filtrados.forEach(livro => {
+        const div = document.createElement('div');
+        div.className = 'livro';
 
-    renderizarLivros();
+        div.innerHTML = `
+            <img src="${livro.imagem}">
+            <div class="livro-info">
+                <div class="livro-titulo">${livro.titulo}</div>
+                <div class="livro-autor">${livro.autor}</div>
+            </div>
+        `;
+
+        div.onclick = () => {
+            alert(`${livro.titulo}\n${livro.autor}`);
+        };
+
+        livrosContainer.appendChild(div);
+    });
+}
+
+searchInput.addEventListener('input', e => {
+    renderizarLivros(e.target.value);
+});
+
+renderizarLivros();
 </script>
 
 </body>
