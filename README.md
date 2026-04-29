@@ -19,11 +19,15 @@ HTML e CSS
 # 4. Funções dos integrantes
 Vitória: Inicialmente com a tela Meus Livros
          Backend (Rotas da API)
+         
 Filipe: Inicialmente com a tela Home
         Backend (Lógica + Banco de Dados)
+        
 Yasmim: Inicialmente com a tela Cadastro de Livros (Index)
         Banco de Dados
+        
 Taís: Inicialmente com a tela Perfil do Usuário
       Integração Front + API
+      
 Tales: Inicialmente com a tela Favoritos
        Teste + Organização
